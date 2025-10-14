@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw8t28573s51u"]
+
+[ext_resource type="PackedScene" uid="uid://cp24uc1bk7a0b" path="res://assets/Sprites/tilemaps/map.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://q2vwb3oy503d" path="res://Scenes/player.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://47feq8s1850e" path="res://Scenes/power_up.tscn" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://dnxwugwq6xrgf" path="res://Scenes/zone_mort.gd" id="4_3dryh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
+size = Vector2(3073, 75)
+
+[node name="game" type="Node2D"]
+
+[node name="map" parent="." instance=ExtResource("1_qxrlw")]
+
+[node name="player" parent="." instance=ExtResource("2_wrm1d")]
+z_index = 1
+position = Vector2(30, 313)
+
+[node name="power_up" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(818, 332)
+
+[node name="zone_mort" type="Area2D" parent="."]
+script = ExtResource("4_3dryh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_mort"]
+position = Vector2(726, 687)
+shape = SubResource("RectangleShape2D_wowpa")
