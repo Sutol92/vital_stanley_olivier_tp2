@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0rpinb66mx1p"]
+
+[ext_resource type="Texture2D" uid="uid://dioyg2eaa6yul" path="res://assets/Sprites/interactive/switch.png" id="1_hinho"]
+[ext_resource type="Script" uid="uid://bfwi1188d50lg" path="res://Scripts/switch.gd" id="1_swbo4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hinho"]
+radius = 16.03122
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swbo4"]
+atlas = ExtResource("1_hinho")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v71cw"]
+atlas = ExtResource("1_hinho")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_og4gy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swbo4")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v71cw")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[node name="switch" type="Area2D"]
+script = ExtResource("1_swbo4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hinho")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_og4gy")
+animation = &"closed"

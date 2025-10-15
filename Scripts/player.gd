@@ -23,8 +23,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_height
+			$jump.play()
 		elif is_on_wall():
 			velocity.y = jump_height
+			$jump.play()
 
 	# Gravité personnalisée
 	if not is_on_floor():

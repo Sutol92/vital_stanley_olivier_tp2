@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://47feq8s1850e"]
+[gd_scene load_steps=31 format=3 uid="uid://47feq8s1850e"]
 
 [ext_resource type="Script" uid="uid://cs1o433o0celv" path="res://Scripts/power_up.gd" id="1_6otjv"]
 [ext_resource type="Texture2D" uid="uid://c8b6c3s3foo5g" path="res://assets/Sprites/power_up/Apple.png" id="1_psa43"]
 [ext_resource type="Texture2D" uid="uid://b10xbupejdfe" path="res://assets/Sprites/power_up/Desappearing (96x96).png" id="3_5dy3k"]
+[ext_resource type="AudioStream" uid="uid://b7adnqt75olny" path="res://assets/sounds/pick-up-sfx-38516.mp3" id="4_5dy3k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iil6j"]
 radius = 12.0415945
@@ -201,5 +202,9 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_xbarm")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="pick_up" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5dy3k")
+volume_db = -18.784
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

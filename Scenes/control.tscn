@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://du22o0l21rcxh"]
+[gd_scene load_steps=3 format=3 uid="uid://du22o0l21rcxh"]
 
-[ext_resource type="Script" uid="uid://d4bvhmhauta8e" path="res://control.gd" id="1_sjmnu"]
+[ext_resource type="Script" uid="uid://d4bvhmhauta8e" path="res://Scripts/control.gd" id="1_sjmnu"]
+[ext_resource type="AudioStream" uid="uid://c2skc1nffm2o8" path="res://assets/sounds/lose.mp3" id="2_cgmvo"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -38,3 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "GAME OVER
 TRY AGAIN"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cgmvo")
+volume_db = -29.579

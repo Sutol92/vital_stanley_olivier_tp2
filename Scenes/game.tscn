@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw8t28573s51u"]
+[gd_scene load_steps=9 format=3 uid="uid://dw8t28573s51u"]
 
 [ext_resource type="PackedScene" uid="uid://cp24uc1bk7a0b" path="res://assets/Sprites/tilemaps/map.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://q2vwb3oy503d" path="res://Scenes/player.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://47feq8s1850e" path="res://Scenes/power_up.tscn" id="3_wrm1d"]
-[ext_resource type="Script" uid="uid://dnxwugwq6xrgf" path="res://Scenes/zone_mort.gd" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://dnxwugwq6xrgf" path="res://Scripts/zone_mort.gd" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://85wy786cks5x" path="res://Scenes/switch.tscn" id="5_i6g32"]
+[ext_resource type="AudioStream" uid="uid://mvsiijx1eilg" path="res://assets/sounds/bg_music.mp3" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://bbqk0j4xedf8c" path="res://Scenes/bridge.tscn" id="6_1l0tm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
 size = Vector2(3073, 75)
@@ -23,5 +26,19 @@ position = Vector2(818, 332)
 script = ExtResource("4_3dryh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zone_mort"]
-position = Vector2(726, 687)
+position = Vector2(731, 613)
 shape = SubResource("RectangleShape2D_wowpa")
+
+[node name="Area2D" parent="." instance=ExtResource("5_i6g32")]
+position = Vector2(899, 341)
+scale = Vector2(1.5, 1.5)
+
+[node name="bridge" parent="." instance=ExtResource("6_1l0tm")]
+visible = false
+position = Vector2(969, 377)
+gravity_scale = 0.0
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wowpa")
+volume_db = -27.801
+autoplay = true
