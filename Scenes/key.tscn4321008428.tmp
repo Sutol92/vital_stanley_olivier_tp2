@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://skf7tijt5hr0"]
+
+[ext_resource type="Script" uid="uid://q1koac4vrqwn" path="res://Scripts/key.gd" id="1_udxw8"]
+[ext_resource type="AudioStream" uid="uid://b7adnqt75olny" path="res://assets/sounds/pick-up-sfx-38516.mp3" id="2_brn0f"]
+[ext_resource type="Texture2D" uid="uid://b10xbupejdfe" path="res://assets/Sprites/power_up/Desappearing (96x96).png" id="2_lc1k7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc1k7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58hov"]
+atlas = ExtResource("2_lc1k7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvjb5"]
+atlas = ExtResource("2_lc1k7")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20akx"]
+atlas = ExtResource("2_lc1k7")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fooj"]
+atlas = ExtResource("2_lc1k7")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44ier"]
+atlas = ExtResource("2_lc1k7")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v468b"]
+atlas = ExtResource("2_lc1k7")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c330"]
+atlas = ExtResource("2_lc1k7")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30odd"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"key_hover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58hov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvjb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20akx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fooj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44ier")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v468b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c330")
+}],
+"loop": false,
+"name": &"pick_up",
+"speed": 12.0
+}]
+
+[node name="key" type="Area2D"]
+script = ExtResource("1_udxw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lc1k7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_30odd")
+animation = &"key_hover"
+
+[node name="pick_up" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_brn0f")
+volume_db = -18.571
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://dw8t28573s51u"]
+
+[ext_resource type="Script" uid="uid://d0ui3y73ru0tj" path="res://Scripts/level_1.gd" id="1_chwpn"]
+[ext_resource type="PackedScene" uid="uid://cp24uc1bk7a0b" path="res://Scenes/map_lvl_1.tscn" id="1_wrinw"]
+[ext_resource type="PackedScene" uid="uid://q2vwb3oy503d" path="res://Scenes/player.tscn" id="2_chwpn"]
+[ext_resource type="PackedScene" uid="uid://47feq8s1850e" path="res://Scenes/power_up.tscn" id="3_af3po"]
+[ext_resource type="Script" uid="uid://dnxwugwq6xrgf" path="res://Scripts/zone_mort.gd" id="4_uy8f0"]
+[ext_resource type="PackedScene" uid="uid://85wy786cks5x" path="res://Scenes/switch.tscn" id="5_6r07y"]
+[ext_resource type="PackedScene" uid="uid://bbqk0j4xedf8c" path="res://Scenes/bridge.tscn" id="6_6ioyp"]
+[ext_resource type="PackedScene" uid="uid://skf7tijt5hr0" path="res://Scenes/key.tscn" id="7_oovug"]
+[ext_resource type="PackedScene" uid="uid://breuoyntqpjfm" path="res://Scenes/door.tscn" id="8_8i23i"]
+[ext_resource type="AudioStream" uid="uid://mvsiijx1eilg" path="res://assets/sounds/bg_music.mp3" id="9_8yhm2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
+size = Vector2(6971, 75)
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_chwpn")
+
+[node name="map" parent="." instance=ExtResource("1_wrinw")]
+
+[node name="player" parent="." instance=ExtResource("2_chwpn")]
+z_index = 1
+position = Vector2(30, 313)
+
+[node name="power_up" parent="." instance=ExtResource("3_af3po")]
+position = Vector2(818, 332)
+
+[node name="zone_mort" type="Area2D" parent="."]
+script = ExtResource("4_uy8f0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_mort"]
+position = Vector2(453, 955)
+shape = SubResource("RectangleShape2D_wowpa")
+
+[node name="Area2D" parent="." instance=ExtResource("5_6r07y")]
+position = Vector2(899, 341)
+scale = Vector2(1.5, 1.5)
+
+[node name="bridge" parent="." instance=ExtResource("6_6ioyp")]
+position = Vector2(969, 377)
+gravity_scale = 0.0
+
+[node name="key" parent="." instance=ExtResource("7_oovug")]
+position = Vector2(766, -20)
+
+[node name="door" parent="." instance=ExtResource("8_8i23i")]
+position = Vector2(1930, 390)
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_8yhm2")
+volume_db = -27.801
+autoplay = true

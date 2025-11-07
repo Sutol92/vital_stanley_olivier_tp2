@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="vital_stanley_olivier_tp2"
-run/main_scene="uid://dw8t28573s51u"
+run/main_scene="uid://bgy4up4xolunx"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

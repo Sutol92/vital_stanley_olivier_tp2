@@ -1,44 +1,62 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw8t28573s51u"]
+[gd_scene load_steps=4 format=3 uid="uid://bgy4up4xolunx"]
 
-[ext_resource type="PackedScene" uid="uid://cp24uc1bk7a0b" path="res://assets/Sprites/tilemaps/map.tscn" id="1_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://q2vwb3oy503d" path="res://Scenes/player.tscn" id="2_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://47feq8s1850e" path="res://Scenes/power_up.tscn" id="3_wrm1d"]
-[ext_resource type="Script" uid="uid://dnxwugwq6xrgf" path="res://Scripts/zone_mort.gd" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://85wy786cks5x" path="res://Scenes/switch.tscn" id="5_i6g32"]
-[ext_resource type="AudioStream" uid="uid://mvsiijx1eilg" path="res://assets/sounds/bg_music.mp3" id="5_wowpa"]
-[ext_resource type="PackedScene" uid="uid://bbqk0j4xedf8c" path="res://Scenes/bridge.tscn" id="6_1l0tm"]
+[ext_resource type="Script" uid="uid://chkhrpaskxe0y" path="res://Scripts/game.gd" id="1_wrm1d"]
+[ext_resource type="AudioStream" uid="uid://c544c1nptohpx" path="res://assets/sounds/Jorge Hernandez - Chopsticks ♫ NO COPYRIGHT 8-bit Music.mp3" id="2_qxrlw"]
+[ext_resource type="Texture2D" uid="uid://cict4fxjyv6uk" path="res://assets/Sprites/interactive/title.png" id="2_wrm1d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
-size = Vector2(3073, 75)
+[node name="game" type="Node"]
+script = ExtResource("1_wrm1d")
 
-[node name="game" type="Node2D"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="map" parent="." instance=ExtResource("1_qxrlw")]
+[node name="TextureRect" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wrm1d")
 
-[node name="player" parent="." instance=ExtResource("2_wrm1d")]
-z_index = 1
-position = Vector2(30, 313)
+[node name="Level_1" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.326
+anchor_top = 0.527
+anchor_right = 0.326
+anchor_bottom = 0.527
+offset_left = -90.552
+offset_top = -46.496
+offset_right = 90.448
+offset_bottom = 44.504
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 1"
 
-[node name="power_up" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(818, 332)
+[node name="Level_2" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.681
+anchor_top = 0.527
+anchor_right = 0.681
+anchor_bottom = 0.527
+offset_left = -89.5121
+offset_top = -43.496
+offset_right = 91.4879
+offset_bottom = 47.504
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 2"
 
-[node name="zone_mort" type="Area2D" parent="."]
-script = ExtResource("4_3dryh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_mort"]
-position = Vector2(731, 613)
-shape = SubResource("RectangleShape2D_wowpa")
-
-[node name="Area2D" parent="." instance=ExtResource("5_i6g32")]
-position = Vector2(899, 341)
-scale = Vector2(1.5, 1.5)
-
-[node name="bridge" parent="." instance=ExtResource("6_1l0tm")]
-visible = false
-position = Vector2(969, 377)
-gravity_scale = 0.0
-
-[node name="bg_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_wowpa")
-volume_db = -27.801
-autoplay = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qxrlw")
+volume_db = -29.171

@@ -5,7 +5,5 @@ func _ready():
 	$AudioStreamPlayer.play()
 	
 func _on_jouer_pressed():
-	var game = load("res://Scenes/game.tscn")
+	var game = load("res://Scenes/level_2.tscn")
 	get_tree().change_scene_to_packed(game)
-	
-	

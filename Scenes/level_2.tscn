@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://hew2472qj2l1"]
+
+[ext_resource type="PackedScene" uid="uid://cr1whwcrceoxo" path="res://Scenes/map_lvl_2.tscn" id="1_smnlx"]
+[ext_resource type="Script" uid="uid://2nkitq818epl" path="res://Scripts/level_2.gd" id="1_v36qu"]
+[ext_resource type="PackedScene" uid="uid://q2vwb3oy503d" path="res://Scenes/player.tscn" id="2_12fag"]
+[ext_resource type="Script" uid="uid://dwqagq4ela73l" path="res://Scripts/zone_mort_2.gd" id="3_1q6tm"]
+[ext_resource type="PackedScene" uid="uid://47feq8s1850e" path="res://Scenes/power_up.tscn" id="3_cggpd"]
+[ext_resource type="PackedScene" uid="uid://breuoyntqpjfm" path="res://Scenes/door.tscn" id="4_2mgoq"]
+[ext_resource type="PackedScene" uid="uid://skf7tijt5hr0" path="res://Scenes/key.tscn" id="5_uhnj4"]
+[ext_resource type="AudioStream" uid="uid://b5xg5o1ewsyjb" path="res://assets/sounds/AdhesiveWombat - Night Shade ♫ NO COPYRIGHT 8-bit Music.mp3" id="8_2mgoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v36qu"]
+size = Vector2(6971, 75)
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_v36qu")
+
+[node name="map" parent="." instance=ExtResource("1_smnlx")]
+texture_filter = 1
+
+[node name="power_up" parent="." instance=ExtResource("3_cggpd")]
+position = Vector2(1200, 131)
+
+[node name="door" parent="." instance=ExtResource("4_2mgoq")]
+position = Vector2(-161, 374)
+
+[node name="key" parent="." instance=ExtResource("5_uhnj4")]
+position = Vector2(129, -174)
+
+[node name="player" parent="." instance=ExtResource("2_12fag")]
+position = Vector2(32, 408)
+
+[node name="zone_mort2" type="Area2D" parent="."]
+script = ExtResource("3_1q6tm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_mort2"]
+position = Vector2(483, 1125)
+shape = SubResource("RectangleShape2D_v36qu")
+
+[node name="bg_music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2mgoq")
+volume_db = -32.874
+autoplay = true

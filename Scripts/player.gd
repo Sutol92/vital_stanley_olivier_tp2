@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
+@onready var game = get_node("/root/game")
 @export var jump_height = -400  # saute un peu moins haut
 @export var gravity = 1200      # retombe plus vite
 @export var acceleration = 600
 @export var max_speed = 200
 
 var direction = Vector2.ZERO
+
+var level_selected: int
 
 @onready var anim = $AnimatedSprite2D
 
@@ -60,7 +63,11 @@ func _ready():
 	spawn_position = global_position
 
 func respawn():
-	global_position = spawn_position
-	velocity = Vector2.ZERO
-	var jeu = load("res://Scenes/control.tscn")
-	get_tree().change_scene_to_packed(jeu)
+	if level_selected == 1:
+		var death = load("res://Scenes/game_over1.tscn")
+		get_tree().change_scene_to_packed(death)
+	elif level_selected == 2:
+		var death = load("res://Scenes/game_over2.tscn")
+		get_tree().change_scene_to_packed(death)
+	
+	

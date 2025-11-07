@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://du22o0l21rcxh"]
+[gd_scene load_steps=3 format=3 uid="uid://rshtimcoplll"]
 
-[ext_resource type="Script" uid="uid://d4bvhmhauta8e" path="res://Scripts/control.gd" id="1_sjmnu"]
-[ext_resource type="AudioStream" uid="uid://c2skc1nffm2o8" path="res://assets/sounds/lose.mp3" id="2_cgmvo"]
+[ext_resource type="Script" uid="uid://byu5htv7vukpg" path="res://Scripts/game_over2.gd" id="1_vflca"]
+[ext_resource type="AudioStream" uid="uid://c2skc1nffm2o8" path="res://assets/sounds/lose.mp3" id="2_7rh5p"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sjmnu")
+script = ExtResource("1_vflca")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -22,7 +22,7 @@ offset_right = 1113.0
 offset_bottom = 610.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9109764, 0.27712896, 0.26207605, 1)
+color = Color(0.910976, 0.277129, 0.262076, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -41,5 +41,5 @@ text = "GAME OVER
 TRY AGAIN"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_cgmvo")
+stream = ExtResource("2_7rh5p")
 volume_db = -29.579

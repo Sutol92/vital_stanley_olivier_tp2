@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://b7adnqt75olny" path="res://assets/sounds/pick-up-sfx-38516.mp3" id="4_5dy3k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iil6j"]
-radius = 12.0415945
+radius = 12.0416
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6otjv"]
 atlas = ExtResource("1_psa43")
@@ -200,7 +200,7 @@ texture_filter = 1
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_xbarm")
-animation = &"idle"
+animation = &"pick_up"
 autoplay = "idle"
 
 [node name="pick_up" type="AudioStreamPlayer" parent="."]
